@@ -1,0 +1,12 @@
+{
+  "name": "waitero-mobile-app",
+  "displayName": "waitero-mobile-app",
+  "expo": {
+    "name": "waitero-mobile-app",
+    "slug": "waitero-mobile-app",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
