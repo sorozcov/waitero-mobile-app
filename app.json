@@ -4,6 +4,10 @@
   "expo": {
     "name": "waitero-mobile-app",
     "slug": "waitero-mobile-app",
+    "splash": {
+      "image": "./src/assets/resources/waitero-splash.png"
+    
+    },
     "version": "1.0.0",
     "assetBundlePatterns": [
       "**/*"
