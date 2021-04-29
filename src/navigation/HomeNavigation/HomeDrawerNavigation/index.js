@@ -13,7 +13,7 @@ import { DrawerItem,DrawerContentScrollView } from '@react-navigation/drawer';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import { CommonActions } from '@react-navigation/native';
 import { connect } from 'react-redux';
-
+import {IconButton} from 'react-native-paper';
 import * as selectors from '../../../logic/reducers';
 import * as actionsAuth from '../../../logic/actions/auth';
 import {Linking} from 'react-native'
@@ -133,13 +133,14 @@ function DrawerScreen({navigation,user,logout,userInformation, selectProfileUser
                   }}
                 />
                 <Text style={{fontFamily:'dosis-light',paddingLeft:wp('5%'),paddingRight:wp('5%',),fontSize:17}} >
-                  {'Waitero es una aplicación.'}
+                  {'Waitero es una aplicación para que cualquier persona pueda realizar sus pedidos y reservas en un restaurante desde la facilidad de su celular. Esta ha sido creado por 5 estudiantes de la UVG a través de un proyecto en la clase de Negocios Tecnológicos'}
                 </Text>
                 
                 <View style={{paddingBottom: '5%'}}>						
                   
                 </View>
               </View>
+              <IconButton testID={'close-button'}  icon="close"  size={30} style={{top:35,right:3,position:'absolute',backgroundColor:'white'}} mode="contained" onPress={()=>setShowModalAboutUs(false)}  />
             </View>
           </Modal>
     
