@@ -75,7 +75,7 @@ function OrderPrintScreen({
 				<View style={{marginTop:'1%',marginBottom:'8%'}}>
 					{showPrintButton && <Button
 						theme={roundness}
-						color={colors.accent}
+						color={'#023E8D'}
 						icon={"printer"}
 						height={50}
 						mode="contained"
