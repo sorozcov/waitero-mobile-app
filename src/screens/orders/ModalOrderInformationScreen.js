@@ -425,7 +425,7 @@ function OrderInformationScreen({
 					<Button
 					disabled={total==0}
 					theme={{roundness:0}}
-					color={'#000000'}
+					color={'#023E8D'}
 					icon={"arrow-right-bold"}
 					height={Platform.OS=='ios' ? 80 : 65}
 					mode="contained"
@@ -457,7 +457,7 @@ function OrderInformationScreen({
 					<Button
 					disabled={total==0}
 					theme={{roundness:0}}
-					color={'#000000'}
+					color={'#023E8D'}
 					icon={"cash-register"}
 					height={Platform.OS=='ios' ? 80 : 65}
 					mode="contained"
@@ -488,7 +488,7 @@ function OrderInformationScreen({
 					<Button
 					disabled={total==0}
 					theme={{roundness:0}}
-					color={'#000000'}
+					color={'#023E8D'}
 					icon={"cash-register"}
 					height={Platform.OS=='ios' ? 80 : 65}
 					mode="contained"

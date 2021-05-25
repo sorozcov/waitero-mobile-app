@@ -33,7 +33,7 @@ function HomeBottomNavigation({navigation}) {
           activeTintColor:'#00ACEE',
           inactiveTintColor:"gray",
           inactiveBackgroundColor:"#000000",
-          tabStyle:{ backgroundColor:'white',paddingBottom:Platform.OS=="ios" ?30:8,marginBottom:Platform.OS=="ios" ? -40:0,paddingTop:20,marginTop:-10,fontSize:'50px',borderTopColor:'#00ACEE',borderTopWidth:0.5,},
+          tabStyle:{ backgroundColor:'white' ,paddingBottom:0,paddingTop:3,fontSize:'50px',borderTopColor:'#00ACEE',borderTopWidth:0.5,},
           labelStyle:{fontSize: 12},
           borderTopColor:'black'
         }}

@@ -28,7 +28,7 @@ function FinishOrder({
     const { roundness,colors } = theme;
     const [modalProduct, setModalProduct] = useState(false);
     // console.log(activeOrder)
-    const renderSectionHeader = ({ section }) => <ListItem   style={{backgroundColor:colors.gray}} itemDivider icon>
+    const renderSectionHeader = ({ section }) => <ListItem   style={{backgroundColor:'black'}} itemDivider icon>
     <Left>
              
                 <Icon active name="restaurant" style={{color:colors.white}}/>
@@ -52,7 +52,7 @@ function FinishOrder({
                      {'Orden' +' Mesa '+activeOrder.table+ " " +activeOrder.orderName}  
                 </Text>
             </View>}
-            <Divider style={{ backgroundColor: colors.accent,marginTop:10,marginBottom:10 }} />
+            <Divider style={{ backgroundColor: 'black',marginTop:10,marginBottom:10 }} />
             <View style={{height:20}}>
                 
                 <Text style={{paddingLeft: 18,fontFamily:'dosis-light',fontSize:18}}>
@@ -60,7 +60,7 @@ function FinishOrder({
                 </Text>
                
             </View>
-            <Divider style={{ backgroundColor: colors.accent,marginTop:10,marginBottom:10 }} />
+            <Divider style={{ backgroundColor: 'black',marginTop:10,marginBottom:10 }} />
            
             <SwipeListView
                 style={{flex:1}}

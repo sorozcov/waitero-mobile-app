@@ -43,7 +43,7 @@ function ProductsList ({ theme, onRefresh,onLoad, categories, isLoading, navigat
     };
 
 
-    const renderSectionHeader = ({ section }) => <ListItem   style={{backgroundColor:colors.gray}} itemDivider icon>
+    const renderSectionHeader = ({ section }) => <ListItem   style={{backgroundColor:'black'}} itemDivider icon>
     <Left>
              
                 <Icon active name="restaurant" style={{color:colors.black}}/>

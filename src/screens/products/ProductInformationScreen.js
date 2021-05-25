@@ -173,7 +173,7 @@ function ProductInformationScreen({
                                 <Button
                                     disabled={!isAdmin && (quantity==0 || quantity==undefined)}
                                     theme={roundness}
-                                    color={'#000000'}
+                                    color={'#023E8D'}
                                     icon={!isAdmin ? "plus" : "pencil"}
                                     height={50}
                                     mode="contained"

@@ -43,7 +43,7 @@ function NewOrder({ theme, navigation, dirty, valid, handleSubmit, next }){
                         <Button
                             disabled={!(dirty && valid)}
                             theme={roundness}
-                            color={'#000000'}
+                            color={'#023E8D'}
                             icon={"arrow-right-bold"}
                             height={50}
                             mode="contained"

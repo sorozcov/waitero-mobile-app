@@ -198,7 +198,7 @@ function ProductInformationScreen({ theme, dirty, valid, handleSubmit, closeModa
 					<Button
 					disabled={!isAdmin && (quantity==0 || quantity==undefined)}
 					theme={{roundness:0}}
-					color={'#000000'}
+					color={'#023E8D'}
 					icon={isNew ? "plus" : "pencil"}
 					height={Platform.OS=='ios' ? 80 : 65}
 					mode="contained"

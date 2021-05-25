@@ -41,7 +41,7 @@ function OrdersList ({
     useEffect(onLoad, []);
     
     const renderSectionHeader = ({ section }) => (
-        <ListItem   style={{backgroundColor:colors.gray}} itemDivider icon>
+        <ListItem   style={{backgroundColor:'black'}} itemDivider icon>
             <Left>
                 <Icon active name="clipboard-text"  style={{color:colors.white}} type="MaterialCommunityIcons"/>
             </Left>
@@ -58,7 +58,7 @@ function OrdersList ({
                     <Container width={width}>
                         <SegmentedControlTab
                             values={[ "Procesando", "Entregados", "Completados", "Cobrados"]}
-                            activeTabStyle={{backgroundColor:colors.gray}}
+                            activeTabStyle={{backgroundColor:'black'}}
                             tabsContainerStyle={{paddingTop:10,paddingBottom:10,marginRight:"10%",marginLeft:"10%"}}
                             tabTextStyle={{fontFamily:'dosis-semi-bold',color:colors.black}}
                             tabStyle={{borderColor:colors.black}}

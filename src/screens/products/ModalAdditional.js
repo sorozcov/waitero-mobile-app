@@ -59,7 +59,7 @@ function ModalAdditional({
 					<Button
 						disabled={!(dirty && valid)}
 						theme={roundness}
-						color={'#000000'}
+						color={'#023E8D'}
 						icon={"plus"}
 						height={50}
 						mode="contained"

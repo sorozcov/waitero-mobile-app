@@ -37,7 +37,7 @@ function ProductsList ({
 
 
     
-    const renderSectionHeader = ({ section }) => <ListItem   style={{backgroundColor:colors.gray}} itemDivider icon>
+    const renderSectionHeader = ({ section }) => <ListItem   style={{backgroundColor:'black'}} itemDivider icon>
     <Left>
              
                 <Icon active name="restaurant" style={{color:colors.white}}/>
@@ -59,8 +59,8 @@ function ProductsList ({
                 value={searchProductText}
                 showCancel={true}
                 showLoading={false}
-                containerStyle={{width:'100%',backgroundColor:colors.black}}
-                //inputContainerStyle={{backgroundColor:'white',fontFamily:'dosis-light',fontSize:17}}
+                containerStyle={{width:'100%',backgroundColor:'#023E8D'}}
+                inputContainerStyle={{backgroundColor:'white',fontFamily:'dosis-light',fontSize:17}}
                 
                 inputStyle={{fontFamily:'dosis-light',fontSize:19}}
             />
@@ -108,7 +108,7 @@ function ProductsList ({
             </Container>
             <Button
                 theme={{roundness:0}}
-                color={'#000000'}
+                color={'#023E8D'}
                 icon={Platform.OS=='ios' ? ()=><MaterialCommunityIcons
                     name="clipboard-text-outline"
                     color='white'
@@ -122,7 +122,7 @@ function ProductsList ({
                 labelStyle={{
                     fontFamily: "dosis-bold",
                     fontSize: 15,
-                    paddingLeft:5,
+                    paddingLeft:0,
                 }}
                 contentStyle={{height:'100%',}}
                 style={{marginLeft: '0%',

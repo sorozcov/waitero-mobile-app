@@ -271,7 +271,7 @@ function EditProductScreen({
 							<Button
 								disabled={!(dirty && valid)}
 								theme={roundness}
-								color={'#000000'}
+								color={'#023E8D'}
 								icon={isNew ? "plus" : "pencil"}
 								height={50}
 								mode="contained"

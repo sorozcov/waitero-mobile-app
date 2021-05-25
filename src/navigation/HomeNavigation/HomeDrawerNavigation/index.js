@@ -23,6 +23,7 @@ import WaiteroLogo from '../../../components/Logo'
 
 function DrawerScreen({navigation,user,logout,userInformation, selectProfileUserId,selectSavedTweets}) {
   const [showModalAboutUs,setShowModalAboutUs] = React.useState(false)
+      console.log(userInformation);
   return (
     <DrawerContentScrollView >
     <View
@@ -30,21 +31,22 @@ function DrawerScreen({navigation,user,logout,userInformation, selectProfileUser
         styles.drawerContent
       }
     >
+
     {userInformation!==null &&
 
         <View style={styles.userInfoSection}>
           <TouchableOpacity style={{width:wp('20%')}} onPress={()=>{}}>
-            <Image style={{borderRadius:hp('50%'),height:hp('8%'),width:hp('8%'),alignSelf:'center'}} source={{uri:`https://ui-avatars.com/api/?name=${userInformation == null ? '' : `${userInformation.first_name}+${userInformation.last_name}`}&background=7DDE92&color=023E8D`}}></Image>
+            <Image style={{borderRadius:hp('50%'),height:hp('8%'),width:hp('8%'),alignSelf:'center'}} source={{uri:`https://ui-avatars.com/api/?name=${userInformation == null ? '' : `${userInformation.name}+${userInformation.lastName}`}&background=7DDE92&color=023E8D`}}></Image>
           </TouchableOpacity>
           <TouchableOpacity style={{width:wp('30%')}} onPress={()=>{}}>
-            <Text style={styles.title}>{userInformation.first_name + " "+ userInformation.last_name}</Text>
+            <Text style={styles.title}>{userInformation.name + " "+ userInformation.lastName}</Text>
           </TouchableOpacity>
           
         
         </View>}
         <View
         style={{
-          borderBottomColor: '#7DDE92',
+          borderBottomColor: '#00ACEE',
           borderBottomWidth: 3,
           marginBottom:hp('2%'),
         }}
@@ -60,7 +62,7 @@ function DrawerScreen({navigation,user,logout,userInformation, selectProfileUser
           style={{paddingTop:0,marginTop:0, fontFamily:'dosis-semi-bold'}}
           label="Perfil"
           labelStyle={{ fontSize: 16, fontFamily:'dosis-semi-bold'}}
-          onPress={() => {navigation.navigate('Account');}}
+          // onPress={() => {navigation.navigate('Account');}}
         />
          
          <DrawerItem
@@ -241,8 +243,8 @@ const styles = StyleSheet.create({
 
 export default connect(
   state => ({
-    user: selectors.getAuthUser(state),
-    userInformation: selectors.getAuthUserInformation(state),
+    user: selectors.getLoggedUser(state),
+    userInformation: selectors.getLoggedUser(state),
   }),
   dispatch => ({
     async logout(navigation) {
