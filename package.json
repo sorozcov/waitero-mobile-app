@@ -31,6 +31,7 @@
     "react-native-responsive-screen": "^1.4.2",
     "react-native-screens": "~3.0.0",
     "react-native-unimodules": "~0.13.3",
+    "react-native-vector-icons": "^8.1.0",
     "react-native-web": "~0.13.12",
     "react-redux": "^7.2.4",
     "redux-form": "^8.3.7",

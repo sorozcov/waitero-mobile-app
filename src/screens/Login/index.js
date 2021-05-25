@@ -4,61 +4,52 @@
 // Este componente contiene los campos para hacer login en la aplicación.
 
 import React from 'react';
-import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+import { reduxForm, Field } from 'redux-form';
 import { StyleSheet, View } from 'react-native';
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import { useTheme } from 'react-native-paper';
 import { CommonActions } from '@react-navigation/native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 import Button from '../../components/Button';
-import TextInput from '../../components/TextInput'
-// import {TextInput} from 'react-native-paper';
+import WaiteroLogo from '../../components/Logo';
+import TextInput from '../../components/TextInput';
 import ModalLoading from '../../components/ModalLoading';
+
 import * as selectors from '../../logic/reducers';
 import * as AuthActions from '../../logic/actions/auth';
-import WaiteroLogo from '../../components/Logo'
-import { useTheme } from 'react-native-paper';
 
 
+function Login({navigation, dirty, valid, handleSubmit, startLogin, isLoading, user, isAuthenticated}) {
+  const theme = useTheme()
 
-function Login({navigation, dirty, valid, handleSubmit,startLogin,isLoading,user,isAuthenticated}) {
   const login = values => {
     startLogin(navigation,values)
   }
-  const theme = useTheme()
   
   if(isAuthenticated && user!=null){
-    console.log('entra aqui');
     navigation.dispatch(
       CommonActions.reset({
         index: 1,
         routes: [
-          { name: 'Home' },
-         
+          { name: 'Home' },   
         ],
       })
     );
-  
   }
 
   return (
-    <View style={styles.container}>
-       
+    <View style={styles.container}> 
       <View style={{height:hp('15%')}}/>
-      <WaiteroLogo/>
       
+      <WaiteroLogo/> 
      
       <Field name={'username'} theme={theme} component={TextInput} icon='account' label='Usuario' placeholder='Ingresa tu usuario' keyboardType='default' secureTextEntry={false} />
       <Field name={'password'} theme={theme} component={TextInput} icon='key' label='Contraseña' placeholder='Ingresa tu contraseña' secureTextEntry={true}/> 
      
-     
-     
-       
-      
       <Button
         theme={theme} 
-        
         icon="login"
         mode="contained"
         labelStyle={{
@@ -69,7 +60,6 @@ function Login({navigation, dirty, valid, handleSubmit,startLogin,isLoading,user
         onPress={handleSubmit(login)}
         text='INICIAR SESIÓN'
       />
-      
     
       <View style={{height:hp('10%')}}/>
         <ModalLoading isLoading={isLoading}/>
@@ -83,12 +73,10 @@ export default connect(
     isAuthenticated: selectors.isAuthenticated(state),
     user: selectors.getAuthUserInformation(state),
     token:selectors.getAuthToken(state),
-   
   }),
   dispatch => ({
-    startLogin(navigation,values) {
+    startLogin(navigation, values) {
       dispatch(AuthActions.startLogin(values));
-      //navigation.replace('Login');r
     },
   }),
 )(reduxForm({ 
@@ -101,17 +89,9 @@ export default connect(
     errors.username = !values.username
       ? 'Este campo es obligatorio'
       : undefined;
-      errors.password = !values.password
-        ? 'Este campo es obligatorio'
-        : undefined;
-      
-      // errors.passwordConfirm = !values.passwordConfirm
-      //   ? 'Debe confirmar su contraseña'
-      //   : values.passwordConfirm !== values.password 
-      //   ? 'La contraseñas ingresadas no coinciden'
-      //   : undefined;
-
-
+    errors.password = !values.password
+      ? 'Este campo es obligatorio'
+      : undefined;
     return errors;
   }
 })(Login));
@@ -121,7 +101,6 @@ const styles = StyleSheet.create({
   container: {
     height: hp('100%'),
     backgroundColor: '#fff',
-   
   },
   imageContainer: {
     alignItems: 'center'
@@ -131,5 +110,4 @@ const styles = StyleSheet.create({
     height: hp('9%'),
     resizeMode: 'contain',
   },
-
 });

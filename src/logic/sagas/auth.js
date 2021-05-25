@@ -20,67 +20,67 @@ import { Alert } from 'react-native';
 import API_BASE_URL from './settings/apibaseurl';
 import TOKEN_LIFE_TIME from './settings/tokenLifeTime';  
 
-  function* login(action) {
-    try {
-      const response = yield call(
-        fetch,
-        `${API_BASE_URL}/token-auth/`,
-        {
-          method: 'POST',
-          body: JSON.stringify(action.payload),
-          headers:{
-            'Content-Type': 'application/json',
-          },
+function* login(action) {
+  try {
+    const response = yield call(
+      fetch,
+      `${API_BASE_URL}/token-auth/`,
+      {
+        method: 'POST',
+        body: JSON.stringify(action.payload),
+        headers:{
+          'Content-Type': 'application/json',
         },
-      );
+      },
+    );
       
-      if (response.status <= 300) {
-        const { token } = yield response.json();
-        //Se guarda el persisted storage////////
-        yield AsyncStorage.setItem('auth', JSON.stringify(token));
-        ////////////////////////////////////////
-        yield put(actions.completeLogin(token));
-        yield put(actions.authenticationUserInformationStarted());
-      } else {
+    if (response.status <= 300) {
+      const { token } = yield response.json();
+      //Se guarda el persisted storage////////
+      yield AsyncStorage.setItem('auth', JSON.stringify(token));
+      ////////////////////////////////////////
+      yield put(actions.completeLogin(token));
+      yield put(actions.authenticationUserInformationStarted());
+    } else {
         
         
        
-        yield put(actions.failLogin('El nombre de usuario y contraseña introducidos no coinciden con nuestros registros. Revísalos e inténtalo de nuevo.'));
-        yield delay(200)
-        const alertButtons =[
-            {text: 'Aceptar', style:'default'},
-        ]
-        const titleError ="Inténtalo de nuevo"
-        const errorMessage='El nombre de usuario y contraseña introducidos no coinciden con nuestros registros. Revísalos e inténtalo de nuevo.';
+      yield put(actions.failLogin('El nombre de usuario y contraseña introducidos no coinciden con nuestros registros. Revísalos e inténtalo de nuevo.'));
+      yield delay(200)
+      const alertButtons =[
+          {text: 'Aceptar', style:'default'},
+      ]
+      const titleError ="Inténtalo de nuevo"
+      const errorMessage='El nombre de usuario y contraseña introducidos no coinciden con nuestros registros. Revísalos e inténtalo de nuevo.';
     
-        yield call(Alert.alert,titleError,errorMessage,alertButtons)
+      yield call(Alert.alert,titleError,errorMessage,alertButtons)
      
         
         
-      }
-    } catch (error) {
+    }
+  } catch (error) {
       
-      yield put(actions.failLogin('Falló la autentitación.'));
-      yield delay(200)
-      const alertButtons =[
-            {text: 'Aceptar', style:'default'},
-        ]
-      const titleError ="Inténtalo de nuevo"
-      const errorMessage="Falló la conexión con el servidor."
+    yield put(actions.failLogin('Falló la autentitación.'));
+    yield delay(200)
+    const alertButtons =[
+      {text: 'Aceptar', style:'default'},
+    ]
+    const titleError ="Inténtalo de nuevo"
+    const errorMessage="Falló la conexión con el servidor."
         
     
-      yield call(Alert.alert,titleError,errorMessage,alertButtons)
-    }
+    yield call(Alert.alert,titleError,errorMessage,alertButtons)
   }
+}
   
 
   
-  export function* watchLoginStarted() {
-    yield takeEvery(
-      types.AUTHENTICATION_STARTED,
-      login,
-    );
-  }
+export function* watchLoginStarted() {
+  yield takeEvery(
+    types.AUTHENTICATION_STARTED,
+    login,
+  );
+}
   
 
 

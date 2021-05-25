@@ -10,11 +10,9 @@ import {
   heightPercentageToDP as hp,
 } from "react-native-responsive-screen";
 
-
 import HomeFeed from '../../../screens/Home';
 import WaiteroLogo from '../../../components/Logo';
-
-
+import RestaurantPage from '../../../screens/Restaurant';
 
 const Stack = createStackNavigator();
 
@@ -29,13 +27,15 @@ export default function HomeStack({navigation,route}) {
         headerShown: true ,
         headerMode: 'screen'}} initialRouteName="HomeFeed">
         <Stack.Screen 
-            name="HomeFeed" 
-            options={{ title: (<WaiteroLogo height={hp('6%')} />), headerTitleAlign:'center'}} 
-            component={HomeFeed} />
-        
-
-        
-        
+          name="HomeFeed" 
+          options={{ title: (<WaiteroLogo height={hp('6%')} />), headerTitleAlign:'center'}} 
+          component={HomeFeed}
+        />
+        <Stack.Screen
+          name="RestaurantPage"
+          options={{ headerShown: false }}
+          component={RestaurantPage}
+        />
       </Stack.Navigator>
    
   );

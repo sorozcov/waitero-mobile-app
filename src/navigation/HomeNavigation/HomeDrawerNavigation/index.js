@@ -258,10 +258,5 @@ export default connect(
         })
       );
     },
-    // selectProfileUserId(navigation, userId){
-    //   dispatch(actionsProfile.setSelectedProfileUserId(userId));
-    //   navigation.navigate('Profile');
-    // },
-    
   }),
 )(DrawerScreen);

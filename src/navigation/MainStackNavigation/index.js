@@ -43,12 +43,12 @@ function MainStack({navigation,route,isAuthenticated=false,savePersistedStorage,
         headerShown: true ,
         headerTitleStyle: {
           fontFamily: 'dosis-bold',          
-          },
+        },
         headerMode: 'screen'}} initialRouteName={"Start"}>
         <Stack.Screen name="Start" options={{ title: 'WAITERO', headerTitleAlign:'center',}} component={StartScreen} />
         <Stack.Screen name="Login" options={{ title: 'INICIA SESIÓN', headerTitleAlign:'center'}} component={LoginScreen} />
         <Stack.Screen name="SignUp" options={{ title: 'REGÍSTRATE', headerTitleAlign:'center'}} component={SignUpScreen} />
-        <Stack.Screen name="Home" options={{ headerShown:false}} component={HomeRootNavigator} />
+        <Stack.Screen name="Home" options={{ headerShown: false }} component={HomeRootNavigator} />
       </Stack.Navigator>
       )}
     </NavigationContainer>

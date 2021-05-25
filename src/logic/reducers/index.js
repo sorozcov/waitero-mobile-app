@@ -4,11 +4,13 @@
 // Este reducer contiene un combine reducer de todos los demás reductores.
 
 import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form'
+import { reducer as formReducer } from 'redux-form';
 import { alertReducer } from 'redux-saga-rn-alert';
 
 import auth, * as authSelectors from './auth';
 import signUp, * as signUpSelectors from './signUp';
+import restaurants, * as resSelectors from './restaurants';
+
 import { AUTHENTICATION_IDENTITY_CLEARED } from '../types/auth';
 
 const reducer = combineReducers({
@@ -16,6 +18,7 @@ const reducer = combineReducers({
   signUp,
   form: formReducer,
   alertReducer,
+  restaurants
 });
 
 
@@ -49,4 +52,5 @@ export const getRefreshingError = state => authSelectors.getRefreshingError(stat
 export const getIsSigningUpUser = state => signUpSelectors.getIsSigningUpUser(state.signUp);
 export const getSigningUpError = state => signUpSelectors.getSigningUpError(state.signUp);
 
-
+//Res Selectors
+export const getRestaurantSelected = state => resSelectors.getSelected(state.restaurants);
