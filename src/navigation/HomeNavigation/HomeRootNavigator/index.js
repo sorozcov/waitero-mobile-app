@@ -17,20 +17,20 @@ import * as selectors from '../../../logic/reducers';
 const DrawerR = createDrawerNavigator();
 
 function RootNavigator({navigation,isAuthenticated}) {
-  if(!isAuthenticated){
-    navigation.dispatch(
-      CommonActions.reset({
-        index: 1,
-        routes: [
-          { name: 'Start' },
+  // if(!isAuthenticated){
+  //   navigation.dispatch(
+  //     CommonActions.reset({
+  //       index: 1,
+  //       routes: [
+  //         { name: 'Start' },
          
-        ],
-      })
-    );
-  }
+  //       ],
+  //     })
+  //   );
+  // }
   return (
     <React.Fragment>
-      <TokenRefresh reviewTime={10000} />
+      {/* <TokenRefresh reviewTime={10000} /> */}
       <DrawerR.Navigator drawerContent={() => <DrawerScreen navigation={navigation}  />}>
         <DrawerR.Screen name="Main" component={BottomNavigationScreen} />
       </DrawerR.Navigator>

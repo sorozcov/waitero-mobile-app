@@ -5,7 +5,7 @@
 // dentro de la aplicación luego de iniciar sesión.
 
 import * as React from 'react';
-import { Platform ,View} from 'react-native';
+import { Platform ,View,Text} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -15,6 +15,8 @@ import HomeStack from '../HomeStackNavigator';
 // import DirectMessagesStack from '../DirectMessagesStackNavigator';
 // import NotificationsStackNavigator from '../NotificationsStackNavigator';
 // import ExploreStackNavigator from '../ExploreStackNavigator';
+import NewOrdersStackScreen from '../../../screens/orders/NewOrderStackScreen';
+import OrderStackScreen from '../../../screens/orders/OrdersStackScreen';
 
 
 const Tab = createBottomTabNavigator();
@@ -24,48 +26,40 @@ function HomeBottomNavigation({navigation}) {
 
   return (
       <Tab.Navigator
-        initialRouteName="Home"
+        initialRouteName="NewOrderr"
         tabBarOptions={{
           keyboardHidesTabBar:true,
           activeBackgroundColor:"#f0edf6",
           activeTintColor:'#00ACEE',
           inactiveTintColor:"gray",
           inactiveBackgroundColor:"#000000",
-          tabStyle:{ backgroundColor: 'white',paddingBottom:Platform.OS=="ios" ?30:8,marginBottom:Platform.OS=="ios" ? -40:0,paddingTop:20,marginTop:-10,fontSize:'50px'},
-          labelStyle:{fontSize: 12}
+          tabStyle:{ backgroundColor:'white',paddingBottom:Platform.OS=="ios" ?30:8,marginBottom:Platform.OS=="ios" ? -40:0,paddingTop:20,marginTop:-10,fontSize:'50px',borderTopColor:'#00ACEE',borderTopWidth:0.5,},
+          labelStyle:{fontSize: 12},
+          borderTopColor:'black'
         }}
         >
        
-        <Tab.Screen name="Home"  component={HomeStack}
-          options={{            
-            tabBarLabel: '',
+   
+         <Tab.Screen name="NewOrderr"  component={NewOrdersStackScreen}
+                options={{            
+                  tabBarLabel: 'Nuevo Pedido',
+                  
+                  tabBarIcon: ({ color}) => (
+                    <MaterialCommunityIcons name="food" color={color} size={30}
+                    style={{ marginTop: 0,paddingBottom:8 }} />
+                  ),
+                }}
+            />
+            <Tab.Screen name="Orders" component={OrderStackScreen} options={{            
+            tabBarLabel: 'Pedidos',
             
             tabBarIcon: ({ color}) => (
-              <MaterialCommunityIcons name="food" color={color} size={30}
+              <MaterialCommunityIcons name="format-list-numbered" color={color} size={30}
               style={{ marginTop: 0,paddingBottom:8 }} />
             ),
           }}
-        />
-        <Tab.Screen name="Orders"  component={HomeStack}
-          options={{            
-            tabBarLabel: '',
-            
-            tabBarIcon: ({ color}) => (
-              <MaterialCommunityIcons name="clipboard-text" color={color} size={30}
-              style={{ marginTop: 0,paddingBottom:8 }} />
-            ),
-          }}
-        />
-           <Tab.Screen name="Account"  component={HomeStack}
-          options={{            
-            tabBarLabel: '',
-            
-            tabBarIcon: ({ color}) => (
-              <MaterialCommunityIcons name="account" color={color} size={30}
-              style={{ marginTop: 0,paddingBottom:8 }} />
-            ),
-          }}
-        />
+            />
+        
         
              
       </Tab.Navigator>

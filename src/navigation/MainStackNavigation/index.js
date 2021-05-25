@@ -38,7 +38,7 @@ function MainStack({navigation,route,isAuthenticated=false,savePersistedStorage,
 
   return (
     <NavigationContainer>
-      { verify && (
+      {/* { verify && ( */}
       <Stack.Navigator screenOptions={{ headerBackTitleVisible:false,
         headerShown: true ,
         headerTitleStyle: {
@@ -50,7 +50,7 @@ function MainStack({navigation,route,isAuthenticated=false,savePersistedStorage,
         <Stack.Screen name="SignUp" options={{ title: 'REGÍSTRATE', headerTitleAlign:'center'}} component={SignUpScreen} />
         <Stack.Screen name="Home" options={{ headerShown:false}} component={HomeRootNavigator} />
       </Stack.Navigator>
-      )}
+      {/* )} */}
     </NavigationContainer>
   );
 }

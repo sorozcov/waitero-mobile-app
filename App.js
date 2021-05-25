@@ -16,7 +16,7 @@ moment.locale('es');
 LogBox.ignoreAllLogs(true);
 
 console.warn = () => {};
-
+// import store from 
 const { store } = configureStore();
 //Se configura el tema 
 const theme = {

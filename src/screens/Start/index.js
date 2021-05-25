@@ -27,7 +27,7 @@ function Start({ navigation, isAuthenticated ,user}) {
         index: 1,
         routes: [
           {
-            name: "Home",
+            name: "Orders",
           },
         ],
       })
