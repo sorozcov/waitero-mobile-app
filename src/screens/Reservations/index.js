@@ -82,7 +82,7 @@ function ReservationsPage({ user, navigation }) {
                                         } }
                                     >
                                         <Image
-                                            source = { { uri: restaurants[0].uri} }
+                                            source = { { uri: restaurants[1].uri} }
                                             style = {{
                                                 height: 100,
                                                 width: 100
@@ -97,7 +97,7 @@ function ReservationsPage({ user, navigation }) {
                                                 marginHorizontal: 10
                                             } }
                                         >
-                                            <Title>{restaurants[0].name}</Title>
+                                            <Title>{restaurants[1].name}</Title>
                                             <Paragraph>{ "5 Personas" }</Paragraph>
                                             <Paragraph>{ "26/05/2021 5:30 PM" }</Paragraph>
                                         </View>
@@ -139,7 +139,7 @@ function ReservationsPage({ user, navigation }) {
                         } }
                     >
                         <Image
-                            source = { { uri: restaurants[0].uri} }
+                            source = { { uri: restaurants[1].uri} }
                             style = {{
                                 height: 100,
                                 width: 100
@@ -154,8 +154,8 @@ function ReservationsPage({ user, navigation }) {
                                 marginHorizontal: 10
                             } }
                         >
-                            <Title>{restaurants[0].name}</Title>
-                            <Paragraph>{ "7 objetos - Q358.75" }</Paragraph>
+                            <Title>{restaurants[1].name}</Title>
+                            <Paragraph>{ "7 objetos - Q465.00" }</Paragraph>
                             <Paragraph>{ "26/05/2021 - Ordenado" }</Paragraph>
                         </View>
 

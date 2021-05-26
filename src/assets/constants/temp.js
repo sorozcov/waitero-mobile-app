@@ -37,7 +37,7 @@ export const months = {
 	},
 }
 
-export const restaurants = [
+export let restaurants = [
 	{
 		id: 1,
 		name: 'Hacienda Real',
@@ -53,6 +53,108 @@ export const restaurants = [
 		time: 25,
 		score: 4.8,
 		tags: [3],
+		menu: [
+			{
+				category: 'Cocteles',
+				items: [
+					{
+						name: 'Piña Colada',
+						description: 'coctel preparado con crema de coco, piña y un toque de Ron Bacardí',
+						category: 'Cocteles',
+						price: 'Q25',
+						uri: 'https://images.absolutdrinks.com/drink-images/Raw/Absolut/d32f1cf1-2a28-463b-9b64-26be5eaf75ed.jpg?imwidth=500',
+						qty: 0
+					},
+					{
+						name: 'White Sangría',
+						description: 'vino blanco, licor de sabor con frutas de la estación y un toque de cítricos',
+						category: 'Cocteles',
+						price: 'Q35',
+						uri: 'https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2019/05/White-Sangria-12-500x500.jpg',
+						qty: 0
+					},
+					{
+						name: 'Mojito',
+						description: 'el clásico coctel cubano con Ron Botrán y hierbabuena',
+						category: 'Cocteles',
+						price: 'Q35',
+						uri: 'https://www.hola.com/imagenes/cocina/recetas/20191213156214/mojito-coctel-clasico/0-758-693/mojito-m.jpg',
+						qty: 0
+					},
+					{
+						name: 'Margarita',
+						description: 'a base de tequila Jose Cuervo Reposado, preparado con el sabor limón',
+						category: 'Cocteles',
+						price: 'Q25',
+						uri: 'https://www.splenda.com/wp-content/themes/bistrotheme/assets/recipe-images/margarita.jpg',
+						qty: 0
+					},
+				]
+			},
+			{
+				category: 'Combos',
+				items: [
+					{
+						name: 'The Classic',
+						description: '8 alitas (boneless o clásicas) + 1 pichel de cerveza',
+						category: 'Combos',
+						price: 'Q135',
+						uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwIph7boApxAZhwmYbXjhKrwU06fZrXZzlNg&usqp=CAU',
+						qty: 0
+					},
+				]
+			},
+			{
+				category: 'Wings',
+				items: [
+					{
+						name: 'The Classics',
+						description: 'nuestras clásicas alitas de pollo marinadas',
+						category: 'Wings',
+						price: 'Q85',
+						uri: 'https://hips.hearstapps.com/hmg-prod/images/classic-buffalo-wings-horizontal-279-1547506077.jpg',
+						qty: 0
+					},
+					{
+						name: 'Bonelesss Wings',
+						description: 'trozos de pechuga de pollo marinados',
+						category: 'Wings',
+						price: 'Q85',
+						uri: 'https://www.macheesmo.com/wp-content/uploads/2017/01/Real-Boneless-Wings-Featire.jpg',
+						qty: 0
+					}
+				]
+			},
+			{
+				category: 'Hamburguesas',
+				items: [
+					{
+						name: "Chofo's Texas Ranger Burger",
+						description: 'tocino ahumado , aros de cebolla, queso monterrey jack, jalapeño y chili beans',
+						category: 'Hamburguesas',
+						price: 'Q89',
+						uri: 'https://scontent.fgua2-1.fna.fbcdn.net/v/t1.6435-9/188009106_10158441941927956_3258260710815785700_n.jpg?_nc_cat=103&ccb=1-3&_nc_sid=730e14&_nc_ohc=oXr6YfP8s0AAX95sK0d&_nc_oc=AQmnnmVPU9QJurXwXrNPWwy1I2NNxndZaR4_JcLA0e_YufEcW2vSV7d3tMCvF7kiz9fATjVgqEHB6mBsFv9qsVcA&_nc_ht=scontent.fgua2-1.fna&oh=7f8d28c43c157c219002f70f2dab54f1&oe=60D273EF',
+						qty: 0
+					},
+					{
+						name: 'Tortrix Onion Cheese Burger',
+						description: 'tortrix, queso provolone, cebollas caramelizadas y tocino con nuestra salsa original BBQ',
+						category: 'Hamburguesas',
+						price: 'Q89',
+						uri: 'https://pbs.twimg.com/media/DBG0x-aV0AAo3tN.jpg',
+						qty: 0
+					},
+					{
+						name: "Rolls Royce",
+						description: 'Original de la casa, bañada con salsa bearnesa y champiñones',
+						category: 'Hamburguesas',
+						price: 'Q77',
+						uri: 'https://scontent.fgua2-1.fna.fbcdn.net/v/t31.18172-8/s1080x2048/29982907_10155615725862956_1622570328771252383_o.jpg?_nc_cat=107&ccb=1-3&_nc_sid=730e14&_nc_ohc=2KXbUy4nkbcAX_Axl7-&_nc_ht=scontent.fgua2-1.fna&tp=7&oh=b4893271de33074adec059516ac84f44&oe=60D5FA3D',
+						qty: 0
+					}
+				]
+			}
+		]
 	},
 	{
 		id: 3,
@@ -173,4 +275,4 @@ export const tags = [
         title: 'Drinks',
         uri: 'https://beekmanbeergarden.com/wp-content/uploads/2017/10/drinks.jpg',
     },
-]
+];
