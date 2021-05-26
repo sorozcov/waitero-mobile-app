@@ -154,9 +154,10 @@ function OrdersList ({
                                                 <Text style={styles.backTextWhite}>Eliminar</Text>
                                                 
                                             </TouchableOpacity>
-                                            
+                                        
+
                                             <TouchableOpacity
-                                                style={[styles.backRightBtn, styles.backRightBtnRight, {borderWidth: 0, backgroundColor: colors.accent,borderRadius:0}]}
+                                                style={[styles.backRightBtn, styles.backRightBtnRight, {borderWidth: 0, backgroundColor: '#0FCBFA',borderRadius:0}]}
                                                 onPress={() => {editOrderStatus(order.item, 2, null);changeIndexShowTab(1)}}
                                             >
                                                 <MaterialCommunityIcons
@@ -205,7 +206,7 @@ function OrdersList ({
                                     (order, rowMap) => (
                                         <View style={styles.rowBack}>
                                             <TouchableOpacity
-                                                style={[styles.backRightBtn, styles.backRightBtnMiddle, {borderWidth: 0, backgroundColor: colors.accent,borderRadius:0}]}
+                                                style={[styles.backRightBtn, styles.backRightBtnMiddle, {borderWidth: 0, backgroundColor: '#0FCBFA',borderRadius:0}]}
                                                 onPress={() => {editOrderStatus(order.item, 1, null);changeIndexShowTab(0)}}
                                             >
                                                 <MaterialCommunityIcons
@@ -216,7 +217,7 @@ function OrdersList ({
                                                 <Text style={{...styles.backTextWhite,fontSize:12}}>Procesando</Text>  
                                             </TouchableOpacity>                                            
                                             <TouchableOpacity
-                                                style={[styles.backRightBtn, styles.backRightBtnRight, {borderWidth: 3, borderColor: colors.accent,borderRadius:0}]}
+                                                style={[styles.backRightBtn, styles.backRightBtnRight, {borderWidth: 3, borderColor: '#0FCBFA',borderRadius:0}]}
                                                 onPress={() => {editOrderStatus(order.item, 3, null);changeIndexShowTab(2)}}
                                             >
                                                 <MaterialCommunityIcons
@@ -362,6 +363,7 @@ const styles = StyleSheet.create({
         right: 150,
         
     },
+ 
     backRightBtnMiddle: {
         backgroundColor: '#FF0D0D',
         right: 75,

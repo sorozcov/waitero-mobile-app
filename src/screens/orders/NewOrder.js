@@ -1,20 +1,26 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Button, withTheme } from 'react-native-paper';
-import { KeyboardAvoidingView, StyleSheet, Text, View } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, View ,TouchableWithoutFeedback} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import MyTextInput from '../../components/TextInput';
 import * as actions from '../../logic/actions/orders';
-
+import ModalPickTable from './ModalPickTable'
 
 function NewOrder({ theme, navigation, dirty, valid, handleSubmit, next }){
 
     const { roundness } = theme
-
+    const [modalOrder, setModalOrder] = useState(false);
+    const [tableNumber, setTableNumber] = useState();
+    // useEffect({})
+    useEffect(()=>{
+        setTableNumber(null);
+    },[navigation])
     const proceed = values => {
-        if (values.orderName && values.table) {
+        if (values.orderName ) {
+            values.table = tableNumber;
             next(navigation, values);
             values.orderName = null;
             values.table = null;
@@ -37,7 +43,23 @@ function NewOrder({ theme, navigation, dirty, valid, handleSubmit, next }){
                             style={{ marginTop: 0, paddingBottom: 0,marginBottom: 0 }} title="Food"/>
                         <Text style={{ fontSize: 22, fontFamily: 'dosis-bold', paddingBottom: 10, paddingTop: 0  }}>NUEVO PEDIDO </Text>
                     </View>
-                    <Field name={'table'} component={MyTextInput} label='Mesa' placeholder='No. de Mesa' keyboardType='numeric'/>
+                    {/* <Field name={'table'} component={MyTextInput} label='Mesa' placeholder='No. de Mesa' keyboardType='numeric' value={tableNumber} /> */}
+                   
+                    <Button
+                           
+                            theme={roundness}
+                            color={'#023E8D'}
+                            icon={"seat"}
+                            height={50}
+                            mode="contained"
+                            labelStyle={{
+                                fontFamily: "dosis-bold",
+                                fontSize: 15,
+                            }}
+                            style={styles.button}
+                            onPress={()=>setModalOrder(true)}>
+                            {tableNumber!=null ? `MESA ${tableNumber}`:'ESCOGER MESA'}
+                        </Button>
                     <Field name={'orderName'} component={MyTextInput} label='Nombre' placeholder='Ingresa un nombre' returnKeyType='done'/>
                     <View style={styles.buttonContainer}>
                         <Button
@@ -58,6 +80,8 @@ function NewOrder({ theme, navigation, dirty, valid, handleSubmit, next }){
                     </View>
                 </View>
             </View>
+            { <ModalPickTable modal={modalOrder} closeModal={()=>{setModalOrder(false);setTableNumber(2);}} setTableNumber={setTableNumber}  navigation={navigation} />}
+            
         </KeyboardAvoidingView>
     )
 }

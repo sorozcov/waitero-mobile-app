@@ -7,7 +7,7 @@
 import * as React from 'react';
 import { Text, View, StyleSheet,Image, TouchableOpacity } from 'react-native';
 import Modal from 'react-native-modal';
-import { AsyncStorage } from 'react-native';
+import { AsyncStorage ,Image as ImageReact} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { DrawerItem,DrawerContentScrollView } from '@react-navigation/drawer';
 import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
@@ -45,6 +45,24 @@ function DrawerScreen({navigation,user,logout,userInformation, selectProfileUser
         
         </View>}
         <View
+        style={{
+          borderBottomColor: '#00ACEE',
+          borderBottomWidth: 3,
+          marginBottom:hp('2%'),
+        }}
+      />
+    <View style={{height:160}}>
+      <View style={{flex:1,
+    flexDirection:'column',
+    alignSelf:'center'}}>
+                        <ImageReact
+                            source={{ uri:"https://media-exp1.licdn.com/dms/image/C560BAQG0oDnd9ai12g/company-logo_200_200/0/1615038631343?e=2159024400&v=beta&t=gCe101bEACqvz3FXGzzeQ6rqqhI9N-koi_gElHJrM-o"}}
+                            style={styles.logoImage}
+                        />
+                           <Text style={styles.title}>San Martín</Text>
+                    </View>
+                    </View>
+      <View
         style={{
           borderBottomColor: '#00ACEE',
           borderBottomWidth: 3,
@@ -181,7 +199,7 @@ const styles = StyleSheet.create({
   logoImage: {
     width: 100,
     height: 100,
-    marginTop:40,
+    marginTop:0,
     resizeMode: 'contain',
     alignSelf:'center',
   },

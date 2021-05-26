@@ -343,20 +343,14 @@ function OrderInformationScreen({
 				<FinishOrder navigation={navigation} onlyDetail={onlyDetail} newOrder={newOrder}/>
 
 				{(charge || chargeView) && <View>
-					<Divider style={{ backgroundColor: colors.accent, marginTop: 10, marginBottom: 10 }} />
-					<MyCheckbox name={'tip'} disabled={false}  label='PROPINA' containerStyle={{ backgroundColor: null, width: '50%', alignSelf: 'center', height: 40 }} size={20} checkedColor={theme.colors.accent} center={true} checked={chargeView ? activeOrder.hasTip !== false : tips} onCheck={(check) => setTips(check)} disabled={chargeView}/>
-					{chargeView && activeOrder.hasTip !== false &&
-					<Text style={{ fontFamily: 'dosis-semi-bold', fontSize: 18, textAlign: 'center' }}>
-						Q.{(parseFloat(activeOrder.tip).toFixed(2))}  
-					</Text> }
-					{/* { charge && tips &&
-					<OptionPicker theme={theme} data={dataTip} onPress={(elem)=>setTip(elem)}/>} */}
-					<Divider style={{ backgroundColor: colors.accent,marginTop:10,marginBottom:10 }} />
-					<MyCheckbox name={'invoice'} disabled={false}  label='FACTURA' containerStyle={{backgroundColor:null,width:'50%',alignSelf:'center',height:40}} size={20} checkedColor={theme.colors.accent} center={true} checked={chargeView ? activeOrder.status===5 : invoice} onCheck={(check)=>setInvoice(check)} disabled={chargeView}/>
-					<Divider style={{ backgroundColor: colors.accent,marginTop:10,marginBottom:10 }} />
-					{/* <MyCheckbox name={'discount'} disabled={false}  label='DESCUENTOS' containerStyle={{backgroundColor:null,width:'50%',alignSelf:'center',height:40}} size={20} checkedColor={theme.colors.accent} center={true} checked={chargeView ? activeOrder.discount!==false : discounts} onCheck={(check)=>setDiscounts(check)} disabled={chargeView}/> */}
-					{!chargeView && <MyCheckbox name={'closeOrder'}   label='CERRAR CUENTA' containerStyle={{backgroundColor:null,width:'50%',alignSelf:'center',height:40}} size={20} checkedColor={theme.colors.accent} center={true} checked={closeOrder} onCheck={(check)=>setCloseOrder(check)} disabled={chargeView}/>}
-					{!chargeView && <Divider style={{ backgroundColor: colors.accent,marginTop:10,marginBottom:10 }} />}
+					<Divider style={{ backgroundColor: '#023E8D', marginTop: 10, marginBottom: 10 }} />
+					
+					<Divider style={{ backgroundColor: '#023E8D',marginTop:10,marginBottom:10 }} />
+					<MyCheckbox name={'invoice'} disabled={false}  label='FACTURA' containerStyle={{backgroundColor:null,width:'50%',alignSelf:'center',height:40}} size={20} checkedColor={'#023E8D'} center={true} checked={chargeView ? activeOrder.status===5 : invoice} onCheck={(check)=>setInvoice(check)} disabled={chargeView}/>
+					<Divider style={{ backgroundColor: '#023E8D',marginTop:10,marginBottom:10 }} />
+					{/* <MyCheckbox name={'discount'} disabled={false}  label='DESCUENTOS' containerStyle={{backgroundColor:null,width:'50%',alignSelf:'center',height:40}} size={20} checkedColor={'#023E8D'} center={true} checked={chargeView ? activeOrder.discount!==false : discounts} onCheck={(check)=>setDiscounts(check)} disabled={chargeView}/> */}
+					{!chargeView && <MyCheckbox name={'closeOrder'}   label='CERRAR CUENTA' containerStyle={{backgroundColor:null,width:'50%',alignSelf:'center',height:40}} size={20} checkedColor={'#023E8D'} center={true} checked={closeOrder} onCheck={(check)=>setCloseOrder(check)} disabled={chargeView}/>}
+					{!chargeView && <Divider style={{ backgroundColor: '#023E8D',marginTop:10,marginBottom:10 }} />}
 					
 					{/* {chargeView && activeOrder.discount!==false && 
 					<Text style={{fontFamily:'dosis-semi-bold', fontSize:18, textAlign:'center'}}>
@@ -364,11 +358,11 @@ function OrderInformationScreen({
 					</Text> }
 					{charge && discounts &&
 					<OptionPicker theme={theme} data={dataTip} onPress={(elem)=>setDiscount(elem)}/>}
-					<Divider style={{ backgroundColor: colors.accent,marginTop:10,marginBottom:10 }} /> */}
+					<Divider style={{ backgroundColor: '#023E8D',marginTop:10,marginBottom:10 }} /> */}
 				</View>}
 				
 				<View style={styles.totalContainer}>
-                	<Text  style={{fontFamily: 'dosis-light', fontSize: 24}}>{'Total: Q. ' + parseFloat(total).toFixed(2)}</Text>
+                	<Text  style={{fontFamily: 'dosis-light', fontSize: 24,marginBottom:80}}>{'Total: Q. ' + parseFloat(total).toFixed(2)}</Text>
            		</View>
 				<View style={{marginTop:'1%',marginBottom:'8%'}}>
 					{showPrintButton && <Button
@@ -385,6 +379,7 @@ function OrderInformationScreen({
 							fontFamily: 'dosis',
 							marginLeft: '5%',
 							marginRight: '5%',
+							marginBottom:'8%',
 							justifyContent: 'center',
 							marginTop: 12,
 						}}
@@ -398,7 +393,7 @@ function OrderInformationScreen({
 					{/* { <Button
 					//   disabled={!isAdmin && (quantity==0 || quantity==undefined)}
 					theme={roundness}
-					color={colors.accent}
+					color={'#023E8D'}
 					icon={"backburger"}
 					height={50}
 					mode="contained"

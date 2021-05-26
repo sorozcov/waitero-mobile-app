@@ -29,7 +29,7 @@ export default function MyTextInput(props) {
   
         placeholderTextColor={'black'}
         // mode={'outlined'}
-        // editable={inputProps.disabled != undefined}
+        editable={inputProps.editable != false}
         label={inputProps.label}
         placeholder={inputProps.placeholder}
         keyboardType={inputProps.keyboardType}

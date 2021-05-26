@@ -61,13 +61,14 @@ function Start({ navigation, isAuthenticated ,user}) {
        
           textAlign:'center',
           fontSize: wp("6%"),
+          height:hp("20%"),
         }}
       >
-        Ordena en cualquier restaurante desde tu celular
+        Bienvenido a la aplicación para restaurantes.
       </Text>
       <View
         style={{
-          height: hp("30%"),
+          height: hp("26%"),
          
           justifyContent:'center',
           alignItems:'center',
@@ -84,7 +85,7 @@ function Start({ navigation, isAuthenticated ,user}) {
         }}
       ></View>
      
-      <Button
+      {/* <Button
         theme={theme}
         color={theme.colors.secondary}
         icon="account-plus"
@@ -96,7 +97,7 @@ function Start({ navigation, isAuthenticated ,user}) {
         }}
         onPress={() => navigation.navigate("SignUp")}
         text='REGÍSTRATE'
-      />
+      /> */}
         
     
       <Button
