@@ -10,6 +10,8 @@ import { alertReducer } from 'redux-saga-rn-alert';
 import auth, * as authSelectors from './auth';
 import signUp, * as signUpSelectors from './signUp';
 import restaurants, * as resSelectors from './restaurants';
+import tags, * as tagSelectors from './tags';
+import reservations, * as reserSelectors from './reservations';
 
 import { AUTHENTICATION_IDENTITY_CLEARED } from '../types/auth';
 
@@ -18,7 +20,9 @@ const reducer = combineReducers({
   signUp,
   form: formReducer,
   alertReducer,
-  restaurants
+  restaurants,
+  tags,
+  reservations,
 });
 
 
@@ -54,3 +58,17 @@ export const getSigningUpError = state => signUpSelectors.getSigningUpError(stat
 
 //Res Selectors
 export const getRestaurantSelected = state => resSelectors.getSelected(state.restaurants);
+export const getRestaurant = (state, id) => resSelectors.getRestaurant(state.restaurants, id);
+export const getRestaurants = state => resSelectors.getRestaurants(state.restaurants);
+export const isFetchingRestaurants = state => resSelectors.getIsFetching(state.restaurants);
+
+//Tag Selectors
+export const getTag = (state, id) => tagSelectors.getTag(state.tags, id);
+export const getTags = state => tagSelectors.getTags(state.tags);
+export const selectedTag = state => tagSelectors.selectedTag(state.tags);
+export const isFetchingTags = state => tagSelectors.getIsFetching(state.tags);
+
+//Reservation Selectors
+export const getRes = (state, id) => reserSelectors.getRes(state.reservations, id);
+export const getRess = state => reserSelectors.getRess(state.reservations);
+export const selectedRes = state => reserSelectors.selectedRes(state.reservations);
