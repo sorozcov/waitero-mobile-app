@@ -5,11 +5,12 @@
 
 import { connect } from 'react-redux';
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, ScrollView, RefreshControl, Text, View, Button } from 'react-native';
+import { StyleSheet, ScrollView, RefreshControl, View, Text } from 'react-native';
 
-import { Modal, Portal } from 'react-native-paper';
 import { Picker } from '@react-native-picker/picker';
+import DateTimePicker from '@react-native-community/datetimepicker';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
+import {  Button, Modal, Title, Divider, TextInput, Snackbar, Provider } from 'react-native-paper';
 
 import drop from 'lodash/drop';
 import { uniqueId } from 'lodash';
@@ -19,6 +20,7 @@ import dropRight  from 'lodash/dropRight';
 import * as CustomButton from '../../components/Button';
 import RestaurantCard from '../../components/RestaurantCard/';
 
+
 import * as selectors from '../../logic/reducers';
 import * as resActions from '../../logic/actions/restaurants';
 import * as reservActions from '../../logic/actions/reservations';
@@ -26,19 +28,23 @@ import * as reservActions from '../../logic/actions/reservations';
 import * as consts from '../../assets/constants/temp';
 
 const allRestaurants = consts.restaurants;
-const months = consts.months;
 let shuffled = false;
 let restaurants;
 
 function HomeScreen({ selectRestaurant, navigation, fetchRes, isFetching, addReservation, selectedRestaurant }) {
 	useEffect(fetchRes, []);
 	
-	const [showModal, setShowModal] = useState(false);
-	const [showDatePicker, setShowDatePicker] = useState(false);
-	const [showTimePicker, setShowTimePicker] = useState(false);
-	const [people, setPeople] = useState(1);
-	const [date, setDate] = useState(new Date());
-	const [time, setTime] = useState(new Date());
+	const [ show, setShow ] = useState(false);
+	const [ visible, setVisible ] = useState(false);
+	const [ partySize, setPartySize ] = useState(2);
+	const [ date, setDate] = useState(new Date());
+	const [ time, setTime ] = useState(new Date());
+
+	const showModal = () => setShow(true);
+	const hideModal = () => setShow(false);
+
+	const showSnackbar = () => setVisible(true);
+	const hideSnackbar = () => setVisible(false);
 
 	if(!shuffled){
 		restaurants = shuffle(allRestaurants);
@@ -52,6 +58,7 @@ function HomeScreen({ selectRestaurant, navigation, fetchRes, isFetching, addRes
 	}
 
 	return (
+		<Provider>
 		<View>
 			<ScrollView
 				style={styles.container}
@@ -65,7 +72,7 @@ function HomeScreen({ selectRestaurant, navigation, fetchRes, isFetching, addRes
 			>
 			{dropRight(restaurants, restaurants.length - 2).map(
 				restaurant => (
-					<RestaurantCard key={restaurant.id} restaurant={restaurant} selectRestaurant={selectRestaurant} navigation={navigation} func={setShowModal}/>
+					<RestaurantCard key={restaurant.id} restaurant={restaurant} selectRestaurant={selectRestaurant} navigation={navigation} func={setShow}/>
 				)
 			)}
 				<Text style={styles.header}>Te puede interesar</Text>
@@ -76,18 +83,86 @@ function HomeScreen({ selectRestaurant, navigation, fetchRes, isFetching, addRes
 					{
 						drop(dropRight(restaurants, 3), 2).map(
 							restaurant => (
-								<RestaurantCard key={restaurant.id} restaurant={restaurant} selectRestaurant={selectRestaurant} navigation={navigation} func={setShowModal}/>
+								<RestaurantCard key={restaurant.id} restaurant={restaurant} selectRestaurant={selectRestaurant} navigation={navigation} func={setShow}/>
 							)
 						)
 					}
 				</ScrollView>
 			{drop(restaurants, restaurants.length - 3).map(
 				restaurant => (
-					<RestaurantCard key={restaurant.id} restaurant={restaurant} selectRestaurant={selectRestaurant} navigation={navigation} func={setShowModal}/>
+					<RestaurantCard key={restaurant.id} restaurant={restaurant} selectRestaurant={selectRestaurant} navigation={navigation} func={setShow}/>
 				)
 			)}
 			</ScrollView>
-			<Portal>
+			<Modal visible = { show } onDismiss = { hideModal } style = { styles.modalWrapper }>
+				<Title>Nueva Reservación</Title>	
+
+				<Divider
+					style = { { 
+						marginTop: 5,
+						backgroundColor: '#00ACEE'
+					} }
+				/>
+
+				<View style = { { 
+					flexDirection: 'column'
+				} }>
+					<TextInput 
+						label = 'Cantidad de Personas'
+						value = { partySize }
+						onChangeText = { e => setPartySize(e) }
+						style = { {
+							margin: 20,
+						} }
+					/>
+				</View>
+
+				<View
+					style = { {
+						flexDirection: 'row'
+					} }
+				>
+					<DateTimePicker 
+						value = {date} 
+						mode = 'date'
+						is24Hour = { true }
+						display = 'default'
+						onChange = { (event, selectedDate) => setDate(selectedDate) }
+						style = { {
+							width: '50%',
+							margin: 20
+						} }
+					/>
+
+					<DateTimePicker 
+						value = {time} 
+						mode = 'time'
+						is24Hour = { true }
+						display = 'default'
+						onChange = { (event, selectedDate) => setTime(selectedDate) }
+						style = { {
+							width: '50%',
+							margin: 20
+						} }
+					/>
+				</View>
+
+				<Button
+					mode = 'contained'
+					onPress = { () => {
+						hideModal();
+						showSnackbar();
+						addReservation(date, time, partySize, selectedRestaurant);
+					} }
+					style = { {
+						margin: 20,
+						backgroundColor: '#00ACEE'
+					} }
+				>
+					Hacer Reserva
+				</Button>
+			</Modal>
+			{/* <Portal>
 				<Modal visible={showModal} onDismiss={() => setShowModal(false)} contentContainerStyle={styles.containerStyle}>
           			<Text style={styles.header}>Haz tu reservación</Text>
 					<Text style={styles.subheader}>Número de personas</Text>
@@ -138,10 +213,17 @@ function HomeScreen({ selectRestaurant, navigation, fetchRes, isFetching, addRes
 							onPress={() => {addReservation(date, time, people, selectedRestaurant); setShowModal(false); clearValues()}}
 						/>
 					</View>
-        		</Modal>
-			</Portal>
+        		</Modal> */}
+		<Snackbar
+			visible = { visible }
+			onDismiss = { hideSnackbar }
+
+		>
+			¡Su reserva se ha realizado con éxito!
+		</Snackbar>
 		</View>
-	);
+		</Provider>
+	)
 }
 
 const styles = StyleSheet.create({
@@ -170,6 +252,16 @@ const styles = StyleSheet.create({
 		alignSelf: 'center',
 		textAlign: 'center',
 		textAlignVertical: 'top',
+	},
+	modalWrapper: {
+		backgroundColor: 'white',
+		padding: 20,
+		marginHorizontal: "5%",
+		marginTop: 100,
+		height: 400,
+		alignContent: 'center',
+		justifyContent: 'center',
+		alignSelf: 'center',
 	}
 });
 
