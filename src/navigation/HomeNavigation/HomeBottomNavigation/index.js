@@ -43,8 +43,8 @@ function HomeBottomNavigation({navigation}) {
             tabBarLabel: '',
             
             tabBarIcon: ({ color}) => (
-              <MaterialCommunityIcons name="food" color={color} size={30}
-              style={{ marginTop: 0,paddingBottom:8 }} />
+              <MaterialCommunityIcons name="home" color={color} size={30}
+              style={{ marginTop: 0, paddingBottom:8 }} />
             ),
           }}
         />
@@ -54,7 +54,7 @@ function HomeBottomNavigation({navigation}) {
             
             tabBarIcon: ({ color}) => (
               <MaterialCommunityIcons name="text-search" color={color} size={30}
-              style={{ marginTop: 0,paddingBottom:8 }} />
+              style={{ marginTop: 0, paddingBottom:8 }} />
             ),
           }}
         />
@@ -64,7 +64,7 @@ function HomeBottomNavigation({navigation}) {
             
             tabBarIcon: ({ color}) => (
               <MaterialCommunityIcons name="clipboard-text" color={color} size={30}
-              style={{ marginTop: 0,paddingBottom:8 }} />
+              style={{ marginTop: 0, paddingBottom:8 }} />
             ),
           }}
         />    

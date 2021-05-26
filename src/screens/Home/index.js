@@ -31,6 +31,47 @@ const allRestaurants = consts.restaurants;
 let shuffled = false;
 let restaurants;
 
+const getStringDate = today => {
+	let dd = today.getDate();
+    let mm = today.getMonth() + 1;
+   	
+	let yyyy = today.getFullYear();
+    
+	if (dd < 10) {
+        dd = '0' + dd;
+    }
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
+
+    return dd + '/' + mm + '/' + yyyy;
+}
+
+const stringifyTime = now => {
+	let h = now.getHours(); 
+	let m = now.getMinutes();
+	let t = 'A.M.'
+	
+	if(m < 10) {
+		m = '0' + m;
+	}
+	if(h > 12) {
+		h = h -12;
+		
+		if(h < 10)
+		{
+			h = '0' + h
+		}
+
+		t = 'P.M.'
+	}
+	if(h === 12){
+		t = 'P.M.'
+	}
+
+	return h + ':' + m + ' ' + t;
+}
+
 function HomeScreen({ selectRestaurant, navigation, fetchRes, isFetching, addReservation, selectedRestaurant }) {
 	useEffect(fetchRes, []);
 	
@@ -285,10 +326,13 @@ export default connect(
 			let reservation = {
 				date,
 				time,
+				stringDate: getStringDate(date),
+				stringTime: stringifyTime(time),
 				people,
 				restaurantId,
 				id: uniqueId()
 			}
+			
 			dispatch(reservActions.postReservation(reservation))
 		}
 	}),
