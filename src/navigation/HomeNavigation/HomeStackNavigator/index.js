@@ -13,6 +13,8 @@ import {
 import HomeFeed from '../../../screens/Home';
 import WaiteroLogo from '../../../components/Logo';
 import RestaurantPage from '../../../screens/Restaurant';
+import ProfileScreen from '../../../screens/Profile';
+import ReservationsPage from '../../../screens/Reservations';
 
 const Stack = createStackNavigator();
 
@@ -23,20 +25,41 @@ export default function HomeStack({navigation,route}) {
     navigation.setOptions({tabBarVisible: true})
   };
   return (
-      <Stack.Navigator screenOptions={{ headerBackTitleVisible:false,
-        headerShown: true ,
-        headerMode: 'screen'}} initialRouteName="HomeFeed">
+      <Stack.Navigator 
+        screenOptions={{ 
+          headerBackTitleVisible:false,
+          headerShown: true ,
+          headerMode: 'screen'
+        }} 
+        initialRouteName="HomeFeed">
+        
         <Stack.Screen 
           name="HomeFeed" 
           options={{ title: (<WaiteroLogo height={hp('6%')} />), headerTitleAlign:'center'}} 
           component={HomeFeed}
         />
+        
         <Stack.Screen
           name="RestaurantPage"
           options={{ headerShown: false }}
           component={RestaurantPage}
         />
+
+        <Stack.Screen 
+          name = 'ProfilePage'
+          options = { {
+            headerShown: false
+          } }
+          component = { ProfileScreen }
+        />
+
+        <Stack.Screen 
+          name = 'ReservationsPage'
+          options = { {
+            headerShown: false
+          } }
+          component = { ReservationsPage }
+        />
       </Stack.Navigator>
-   
   );
 }

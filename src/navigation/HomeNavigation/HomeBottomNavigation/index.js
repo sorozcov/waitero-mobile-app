@@ -12,6 +12,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import * as selectors from '../../../logic/reducers';
 import { connect } from 'react-redux';
 import HomeStack from '../HomeStackNavigator';
+import ProfileScreen from '../../../screens/Profile';
+import ReservationsPage from '../../../screens/Reservations';
 // import DirectMessagesStack from '../DirectMessagesStackNavigator';
 // import NotificationsStackNavigator from '../NotificationsStackNavigator';
 // import ExploreStackNavigator from '../ExploreStackNavigator';
@@ -46,7 +48,8 @@ function HomeBottomNavigation({navigation}) {
             ),
           }}
         />
-        <Tab.Screen name="Orders"  component={HomeStack}
+
+        <Tab.Screen name="ReservationsPage"  component={ReservationsPage}
           options={{            
             tabBarLabel: '',
             
@@ -56,7 +59,8 @@ function HomeBottomNavigation({navigation}) {
             ),
           }}
         />
-           <Tab.Screen name="Account"  component={HomeStack}
+
+        <Tab.Screen name="ProfilePage"  component={ProfileScreen}
           options={{            
             tabBarLabel: '',
             

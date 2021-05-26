@@ -86,6 +86,7 @@ function HomeScreen({ selectRestaurant, navigation }) {
 				} }>
 					<TextInput 
 						label = 'Cantidad de Personas'
+						mode = 'outlined'
 						value = { partySize }
 						onChangeText = { e => setPartySize(e) }
 						style = { {
@@ -159,6 +160,7 @@ const styles = StyleSheet.create({
 		backgroundColor: 'white',
 		padding: 20,
 		height: 300,
+		marginTop: 200,
 		alignContent: 'center',
 		justifyContent: 'center'
 	}
