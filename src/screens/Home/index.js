@@ -109,6 +109,7 @@ function HomeScreen({ selectRestaurant, navigation, fetchRes, isFetching, addRes
 				} }>
 					<TextInput 
 						label = 'Cantidad de Personas'
+						mode = 'outlined'
 						value = { partySize }
 						onChangeText = { e => setPartySize(e) }
 						style = { {

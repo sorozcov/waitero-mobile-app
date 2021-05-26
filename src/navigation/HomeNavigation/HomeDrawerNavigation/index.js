@@ -34,7 +34,7 @@ function DrawerScreen({navigation,user,logout,userInformation, selectProfileUser
 
         <View style={styles.userInfoSection}>
           <TouchableOpacity style={{width:wp('20%')}} onPress={()=>{}}>
-            <Image style={{borderRadius:hp('50%'),height:hp('8%'),width:hp('8%'),alignSelf:'center'}} source={{uri:`https://ui-avatars.com/api/?name=${userInformation == null ? '' : `${userInformation.first_name}+${userInformation.last_name}`}&background=7DDE92&color=023E8D`}}></Image>
+            <Image style={{borderRadius:hp('50%'),height:hp('8%'),width:hp('8%'),alignSelf:'center'}} source={{uri:`https://ui-avatars.com/api/?name=${userInformation == null ? '' : `${userInformation.first_name}+${userInformation.last_name}`}&background=00ACEE&color=FFFFFF`}}></Image>
           </TouchableOpacity>
           <TouchableOpacity style={{width:wp('30%')}} onPress={()=>{}}>
             <Text style={styles.title}>{userInformation.first_name + " "+ userInformation.last_name}</Text>
@@ -44,8 +44,9 @@ function DrawerScreen({navigation,user,logout,userInformation, selectProfileUser
         </View>}
         <View
         style={{
-          borderBottomColor: '#7DDE92',
+          borderBottomColor: '#00ACEE',
           borderBottomWidth: 3,
+          marginTop:hp('4%'),
           marginBottom:hp('2%'),
         }}
       />
@@ -60,10 +61,10 @@ function DrawerScreen({navigation,user,logout,userInformation, selectProfileUser
           style={{paddingTop:0,marginTop:0, fontFamily:'dosis-semi-bold'}}
           label="Perfil"
           labelStyle={{ fontSize: 16, fontFamily:'dosis-semi-bold'}}
-          onPress={() => {navigation.navigate('Account');}}
+          onPress={() => {navigation.navigate('ProfilePage');}}
         />
          
-         <DrawerItem
+         {/* <DrawerItem
           icon={({ color, size}) => (
             <MaterialCommunityIcons
               name="help-network"
@@ -76,7 +77,7 @@ function DrawerScreen({navigation,user,logout,userInformation, selectProfileUser
           labelStyle={{ fontSize: 16, fontFamily:'dosis-semi-bold'}}
           selectSavedTweets
           onPress={() => {Linking.openURL(`tel:${50258508720}`)}}
-        />
+        /> */}
           <DrawerItem
           icon={({ color, size}) => (
             <MaterialCommunityIcons

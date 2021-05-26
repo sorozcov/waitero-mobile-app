@@ -13,7 +13,9 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import SearchStack from '../../SearchStack';
 import HomeStack from '../HomeStackNavigator';
+//import ReservationsPage from '../../../screens/Reservations';
 import ReservationStack from '../../ReservationStack';
+//import ProfileScreen from '../../../screens/Profile';
 
 import * as selectors from '../../../logic/reducers';
 
@@ -47,27 +49,25 @@ function HomeBottomNavigation({navigation}) {
           }}
         />
         <Tab.Screen name="Explore"  component={SearchStack}
-          options={{
+          options={{            
             tabBarLabel: '',
             
-            tabBarIcon: ({ color }) => (
+            tabBarIcon: ({ color}) => (
               <MaterialCommunityIcons name="text-search" color={color} size={30}
-              style={{ marginTop: 0, paddingBottom: 8 }} />
+              style={{ marginTop: 0,paddingBottom:8 }} />
             ),
           }}
         />
-           <Tab.Screen name="Orders"  component={ReservationStack}
+        <Tab.Screen name="ReservationsPage"  component={SearchStack}
           options={{            
             tabBarLabel: '',
             
             tabBarIcon: ({ color}) => (
               <MaterialCommunityIcons name="clipboard-text" color={color} size={30}
-              style={{ marginTop: 0, paddingBottom: 8 }} />
+              style={{ marginTop: 0,paddingBottom:8 }} />
             ),
           }}
-        />
-        
-             
+        />    
       </Tab.Navigator>
   );
 }
