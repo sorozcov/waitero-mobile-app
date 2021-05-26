@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { StyleSheet, ScrollView , View, Image} from 'react-native';
 
 import { Card, Button, Badge, Modal, Title, Divider, TextInput, Snackbar, Provider, Paragraph } from 'react-native-paper';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 import * as selectors from '../../logic/reducers';
@@ -13,10 +12,9 @@ import * as consts from '../../assets/constants/temp';
 
 const restaurants = consts.restaurants;
 
-function ReservationsPage({ user, navigation }) {    
+function ReservationsPage({ navigation, reservations }) {    
     const [ tab, setTab ] = useState(0);
     const [ show, setShow ] = useState(false);
-    const [ reservations, setReservations ] = useState(1);
 
     const selectedTab = {
         width: '65%',
@@ -68,7 +66,7 @@ function ReservationsPage({ user, navigation }) {
                 tab === 0 ? (
                     <View>
                         {
-                            reservations === 1 ? (
+                            reservations.length >= 1 ? reservations.map( res => (
                                 <View>
                                     <View
                                         style = { {
@@ -82,7 +80,7 @@ function ReservationsPage({ user, navigation }) {
                                         } }
                                     >
                                         <Image
-                                            source = { { uri: restaurants[0].uri} }
+                                            source = { { uri: restaurants.filter(rest => rest.id === res.restaurantId)[0].uri} }
                                             style = {{
                                                 height: 100,
                                                 width: 100
@@ -97,9 +95,9 @@ function ReservationsPage({ user, navigation }) {
                                                 marginHorizontal: 10
                                             } }
                                         >
-                                            <Title>{restaurants[0].name}</Title>
-                                            <Paragraph>{ "5 Personas" }</Paragraph>
-                                            <Paragraph>{ "26/05/2021 5:30 PM" }</Paragraph>
+                                            <Title>{restaurants.filter(rest => rest.id === res.restaurantId)[0].name}</Title>
+                                            <Paragraph>{ `${res.people} Personas` }</Paragraph>
+                                            <Paragraph>{ `${res.stringDate} ${res.stringTime}` }</Paragraph>
                                         </View>
 
                                         <Button 
@@ -113,7 +111,7 @@ function ReservationsPage({ user, navigation }) {
                                         </Button>
                                     </View>
                                 </View>
-                            ) : (
+                            )) : (
                                 <View
                                     style = { {
                                         justifyContent: "center",
@@ -227,7 +225,7 @@ function ReservationsPage({ user, navigation }) {
                             setReservations(0);
                             setShow(false);
                         } }
-                    >Cancelar</Button>
+                    >Cancelar Reservación</Button>
                 </View>
             </Modal>
         </ScrollView>
@@ -237,8 +235,8 @@ function ReservationsPage({ user, navigation }) {
 
 export default connect(
 	state => ({
-		user: selectors.getAuthUserInformation(state),
 		token: selectors.getAuthToken(state),
+        reservations: selectors.getRess(state)
 	}),
 	dispatch => ({
 		// selectRestaurant(navigation, id){
