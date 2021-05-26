@@ -13,7 +13,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 import SearchStack from '../../SearchStack';
 import HomeStack from '../HomeStackNavigator';
-//import ReservationsPage from '../../../screens/Reservations';
+import ReservationsPage from '../../../screens/Reservations';
 import ReservationStack from '../../ReservationStack';
 //import ProfileScreen from '../../../screens/Profile';
 
@@ -58,7 +58,7 @@ function HomeBottomNavigation({navigation}) {
             ),
           }}
         />
-        <Tab.Screen name="ReservationsPage"  component={SearchStack}
+        <Tab.Screen name="ReservationsPage"  component={ReservationsPage}
           options={{            
             tabBarLabel: '',
             

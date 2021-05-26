@@ -4,7 +4,6 @@ import { StyleSheet, ScrollView , View, TextInputBase} from 'react-native';
 
 import { Card, Button, Badge, Modal, Title, Divider, TextInput, Subheading, Provider, Avatar } from 'react-native-paper';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
-import DateTimePicker from '@react-native-community/datetimepicker';
 
 import * as selectors from '../../logic/reducers';
 import * as resActions from '../../logic/actions/restaurants';

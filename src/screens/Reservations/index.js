@@ -11,7 +11,7 @@ import * as resActions from '../../logic/actions/restaurants';
 
 import * as consts from '../../assets/constants/temp';
 
-const restaurants = consts.restaurants
+const restaurants = consts.restaurants;
 
 function ReservationsPage({ user, navigation }) {    
     const [ tab, setTab ] = useState(0);
@@ -176,7 +176,7 @@ function ReservationsPage({ user, navigation }) {
                     height: 200,
                     alignContent: 'center',
                     justifyContent: 'center',
-                    marginTop: 350  ,
+                    marginTop: 350,
                 } }
             >
                 <Title
@@ -234,19 +234,6 @@ function ReservationsPage({ user, navigation }) {
     );
 };
 
-const styles = StyleSheet.create({
-	container: {
-		height: hp('100%'),
-		alignContent: 'center',
-	},
-	modalWrapper: {
-		backgroundColor: 'white',
-		padding: 20,
-		height: 300,
-		alignContent: 'center',
-		justifyContent: 'center'
-	}
-});
 
 export default connect(
 	state => ({

@@ -13,8 +13,8 @@ import {
 import HomeFeed from '../../../screens/Home';
 import WaiteroLogo from '../../../components/Logo';
 import RestaurantPage from '../../../screens/Restaurant';
-//import ProfileScreen from '../../../screens/Profile';
-//import ReservationsPage from '../../../screens/Reservations';
+import ProfileScreen from '../../../screens/Profile';
+import ReservationsPage from '../../../screens/Reservations/index';
 
 const Stack = createStackNavigator();
 
@@ -45,21 +45,21 @@ export default function HomeStack({navigation,route}) {
           component={RestaurantPage}
         />
 
-        {/* <Stack.Screen 
+        <Stack.Screen 
           name = 'ProfilePage'
           options = { {
             headerShown: false
           } }
           component = { ProfileScreen }
-        /> */}
+        />
 
-        {/* <Stack.Screen 
+        <Stack.Screen 
           name = 'ReservationsPage'
           options = { {
             headerShown: false
           } }
           component = { ReservationsPage }
-        /> */}
+        />
       </Stack.Navigator>
   );
 }
